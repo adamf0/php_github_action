@@ -38,8 +38,8 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 465
-        username: adamilkom00@gmail.com
-        password: x07121998x
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         body: hai adam proses update web server berhasil di sinkronisasi dengan repository anda
         to: adamilkom00@gmail.com
