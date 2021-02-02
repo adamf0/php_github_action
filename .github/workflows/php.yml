@@ -9,5 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: pxgamer/phpunit-action@master
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist
+    
+    - name: Run Test 
       with:
         command: indexTest.php
