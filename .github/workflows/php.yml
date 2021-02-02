@@ -29,9 +29,7 @@ jobs:
           sudo su
           cd ../../var/www/html/php_github_action
           ls
-          git pull
-          git fetch
-          git merge origin/master
+          git pull origin master --allow-unrelated-histories
           
     - name: Rebuild
       uses: php-actions/composer@v5
