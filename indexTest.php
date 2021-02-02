@@ -13,7 +13,7 @@ class indexTest extends TestCase{
     }
     public function testCekOperandK()
     {
-        $this->assertEquals(-1, MyClass::operasi_aritmatika(1,2,'-'));
+        $this->assertEquals(1, MyClass::operasi_aritmatika(1,2,'-'));
     }
     public function testCekOperanKL()
     {
