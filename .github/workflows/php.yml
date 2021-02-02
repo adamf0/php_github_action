@@ -25,5 +25,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: 22
         script: |
+          sudo su
           cd ~/var/www/html
           ls
