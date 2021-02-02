@@ -36,5 +36,5 @@ jobs:
       uses: php-actions/composer@v5
       with:  
         command: |
-          sudo su
-          ls
+          composer install
+          composer update
