@@ -19,8 +19,8 @@ class indexTest extends TestCase{
     {
         $this->assertEquals(2, MyClass::operasi_aritmatika(1,2,'x'));
     }
-    public function testCekOperanB()
-    {
-        $this->assertEquals(1, MyClass::operasi_aritmatika(1,1,'/'));
-    }
+//     public function testCekOperanB()
+//     {
+//         $this->assertEquals(1, MyClass::operasi_aritmatika(1,1,'/'));
+//     }
 }
