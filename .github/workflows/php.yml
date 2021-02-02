@@ -9,8 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Validate composer.json and composer.lock
-      run: composer validate
-
     - name: Install dependencies
       run: composer install --prefer-dist
+    
+    - name: Run Test 
+    - uses: pxgamer/phpunit-action@master
+      with:
+        command: indexTest.php
