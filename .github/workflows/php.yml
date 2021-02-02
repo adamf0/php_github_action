@@ -25,6 +25,5 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: 22
         script: |
-          whoami
           cd ~/var/www/html
           ls
