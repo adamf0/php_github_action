@@ -1,4 +1,4 @@
-name: PHP Init
+name: CI/CD
 on:
   push:
     branches: [ master ]
@@ -9,10 +9,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Install dependencies
+    - name: Install Dependencies
       run: composer install --prefer-dist
     
     - name: Run Test 
       uses: pxgamer/phpunit-action@master
       with:
         command: indexTest.php
+    
+    - name: Remote SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 22
+        script: |
+          cd ./var/www/html
+          git pull origin master
+          git status
