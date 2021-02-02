@@ -18,6 +18,7 @@ jobs:
         command: indexTest.php
     
     - name: Remote SSH
+      id: remote_ssh
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -26,5 +27,23 @@ jobs:
         port: 22
         script: |
           sudo su
-          cd ../../var/www/html
+          cd ../../var/www/html/php_github_action
           ls
+          git pull origin master
+          composer install
+          composer update
+          
+    - name: Send mail
+      if: steps.remote_ssh.outputs.exit_code == 0
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: Github Actions job result
+        body: hai adam proses update web server berhasil di sinkronisasi dengan repository anda
+        to: adamilkom00@gmail.com
+        from: Github Action
+        cc: GithubAction@server.com
+        content_type: text/html
