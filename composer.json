@@ -1,0 +1,6 @@
+{
+    "require": {
+        "nesbot/carbon": "^2.44",
+        "phpunit/phpunit": "^9.5"
+    }
+}
