@@ -27,11 +27,9 @@ jobs:
         port: 22
         script: |
           sudo su
-          cd ../../var/www/html
+          cd ../../var/www/html/php_github_action
           ls
-          [ -d php_github_action ] && rm -rf php_github_action
-          mkdir php_github_action && cd php_github_action
-          git clone https://github.com/adamf0/php_github_action.git
+          git pull origin master          
           git status
     
     - name: Send mail
